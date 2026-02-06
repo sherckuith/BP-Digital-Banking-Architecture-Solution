@@ -1,0 +1,25 @@
+```mermaid
+
+graph TD
+    subgraph Onboarding_Service_Container [Onboarding Service Container]
+        API_Ctrl[Onboarding API Controller<br/>REST/gRPC Handlers]
+        PKCE_Mgr[PKCE & Token Manager<br/>Gestiona code_verifier y DPoP]
+        Bio_Orch[Biometric Orchestrator<br/>Coordina flujo de vida y match]
+        SDK_Client[SDK Bridge: Facephi/QI-Tech<br/>Comunicación con terceros]
+        Enclave_Binder[Secure Enclave Binder<br/>Genera llaves en hardware]
+        Id_Store[Identity Store Client<br/>Capa de persistencia Aurora]
+    end
+
+    %% Flujos Internos
+    API_Ctrl --> PKCE_Mgr
+    API_Ctrl --> Bio_Orch
+    Bio_Orch --> SDK_Client
+    Bio_Orch --> Enclave_Binder
+    Enclave_Binder --> Id_Store
+    
+    %% Relaciones Externas
+    SDK_Client -.->|Selfie + Doc Scan| Biometry_Ext[Sistemas Biométricos Ext.]
+    Enclave_Binder -.->|Pub Key Reference| Device_SE[Secure Enclave Mobile]
+    Id_Store -->|Masked Fields| DB[(Identity DB)]
+
+```

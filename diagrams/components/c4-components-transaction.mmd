@@ -1,0 +1,19 @@
+```mermaid
+
+graph TD
+    subgraph Txn_Container [Transaction Service Container]
+        API[Transfer API Controller<br/>Expone endpoints REST/gRPC]
+        Saga[Saga Orchestrator Component<br/>Maneja transacciones compensatorias]
+        FraudClient[Fraud Check Client<br/>Integración con MLaaS]
+        OutboxComp[Outbox Publisher Component<br/>Escribe en tabla Outbox DB]
+        CoreAdapt[Core Banking Adapter<br/>Conector con Legacy On-Prem]
+    end
+
+    API --> Saga
+    Saga --> FraudClient
+    Saga --> CoreAdapt
+    Saga --> OutboxComp
+    
+    OutboxComp -->|Atomic Write| OutboxTable[(Outbox Table)]
+
+```

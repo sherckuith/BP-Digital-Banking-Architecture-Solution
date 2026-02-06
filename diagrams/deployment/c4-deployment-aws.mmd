@@ -1,0 +1,59 @@
+```mermaid
+
+graph TD
+    subgraph Global_Traffic [Tráfico Global y Seguridad]
+        DNS[AWS Route 53<br/>Health-checks + Latency Routing]
+        GA[AWS Global Accelerator<br/>Anycast IP / RTO < 5 min]
+        WAF[AWS WAF & Shield<br/>Anti-DDoS / FAPI 2.0 Protection]
+    end
+
+    subgraph AWS_Region_A [Region A: Primary - Active]
+        subgraph VPC_A [VPC BP-Digital]
+            subgraph Public_Subnet_A [Public Subnets]
+                ALB_A[Application Load Balancer]
+                CF_A[CloudFront / Edge Locations]
+            end
+            
+            subgraph Private_App_Subnet_A [Private Subnets: Compute]
+                EKS_A[Amazon EKS Cluster<br/>Onboarding / Txn / Audit / Notify]
+            end
+            
+            subgraph Private_Data_Subnet_A [Private Subnets: Data]
+                Aurora_A[(Aurora Global DB<br/>Master Instance)]
+                MSK_A{Amazon MSK / Kafka}
+                Elastic_A[(ElastiCache: Redis)]
+            end
+        end
+    end
+
+    subgraph On_Premise [Data Center BP: On-Premise]
+        DX[AWS Direct Connect<br/>Dedicated 10Gbps Line]
+        Core[Core Legacy: AS/400<br/>Mainframe Transaccional]
+    end
+
+    subgraph AWS_Region_B [Region B: Standby - Warm/Active]
+        subgraph VPC_B [VPC BP-Secondary]
+            EKS_B[Amazon EKS Cluster]
+            Aurora_B[(Aurora Global DB<br/>Replica)]
+        end
+    end
+
+    %% Conexiones
+    DNS --> GA
+    GA --> WAF
+    WAF --> ALB_A & EKS_B
+    
+    ALB_A --> EKS_A
+    EKS_A --> Aurora_A
+    EKS_A --> MSK_A
+    EKS_A --> Elastic_A
+    
+    %% Conexión Core
+    EKS_A <--> DX
+    DX <--> Core
+    
+    %% Replicación Global
+    Aurora_A -.->|Global Replication| Aurora_B
+    MSK_A -.->|MirrorMaker 2| VPC_B
+
+```

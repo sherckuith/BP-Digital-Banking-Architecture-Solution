@@ -1,0 +1,39 @@
+```mermaid
+sequenceDiagram
+    participant UI as SPA / Mobile
+    participant BFF as BFF Web/Mobile
+    participant Auth as Auth Service
+    participant Txn as Transaction Service
+    participant Core as Core Legacy
+    participant Fraud as Fraud Detection
+    participant Outbox as Outbox DB
+    participant Kafka as Kafka (txn events)
+    participant Notify as Notification Orchestrator
+    participant Audit as Audit Service
+
+    UI->>BFF: POST /transfer (Idempotency Key)
+    BFF->>Auth: Bearer token validation (DPoP)
+    Auth-->>BFF: OK
+    BFF->>Txn: Transfer request
+    Txn->>Core: Reserve funds (debit)
+    Core-->>Txn: Ack
+    Txn->>Fraud: Risk evaluation
+    alt Risk > MTU / anomalies
+        Fraud-->>Txn: MFA step up required
+        BFF->>UI: Prompt OTP (push / SMS)
+        UI->>BFF: OTP
+        BFF->>Txn: OTP validated
+    end
+    Txn->>Core: Commit credit (beneficiary)
+    Core-->>Txn: Confirm
+    Txn->>Outbox: Persist event (transaction completed)
+    Outbox->>Kafka: Publish txn events
+    Kafka->>Notify: txn events
+    Notify->>FCM: Push notification
+    Notify->>Twilio: SMS fallback (if no ACK)
+    Txn->>Audit: Log event
+    Audit->>Ledger: Append only entry + hash chain
+    Txn-->>BFF: Transfer OK (status)
+    BFF-->>UI: 200 OK + transaction receipt
+
+```

@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.7">
+  <diagram name="Página-1" id="ADNXL55bSqRL8_2zGc-F">
+    <mxGraphModel dx="1554" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="L-TrsTFA1iequfYlOL2p-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Transaction Service Container" vertex="1">
+          <mxGeometry height="480" width="910" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Transfer API Controller&#xa;Expone endpoints REST/gRPC" vertex="1">
+          <mxGeometry height="102" width="260" x="325" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Saga Orchestrator Component&#xa;Maneja transacciones compensatorias" vertex="1">
+          <mxGeometry height="126" width="260" x="325" y="197" as="geometry" />
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-4" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Fraud Check Client&#xa;Integración con MLaaS" vertex="1">
+          <mxGeometry height="78" width="220" x="55" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Outbox Publisher Component&#xa;Escribe en tabla Outbox DB" vertex="1">
+          <mxGeometry height="102" width="260" x="325" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-6" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Core Banking Adapter&#xa;Conector con Legacy On-Prem" vertex="1">
+          <mxGeometry height="102" width="260" x="635" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-7" parent="1" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;" value="Outbox Table" vertex="1">
+          <mxGeometry height="74" width="109" x="400" y="574" as="geometry" />
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-8" edge="1" parent="1" source="L-TrsTFA1iequfYlOL2p-2" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="L-TrsTFA1iequfYlOL2p-3" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-9" edge="1" parent="1" source="L-TrsTFA1iequfYlOL2p-3" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.81;entryX=0.5;entryY=0;rounded=0;" target="L-TrsTFA1iequfYlOL2p-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="165" y="348" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-10" edge="1" parent="1" source="L-TrsTFA1iequfYlOL2p-3" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.79;entryX=0.5;entryY=0;rounded=0;" target="L-TrsTFA1iequfYlOL2p-6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="765" y="348" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-11" edge="1" parent="1" source="L-TrsTFA1iequfYlOL2p-3" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="L-TrsTFA1iequfYlOL2p-5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L-TrsTFA1iequfYlOL2p-12" edge="1" parent="1" source="L-TrsTFA1iequfYlOL2p-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="L-TrsTFA1iequfYlOL2p-7" value="Atomic Write">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

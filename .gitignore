@@ -1,0 +1,15 @@
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Eraser files
+*.eraser
+
+# Instructions
+test_instructions.md
+
+# Build
+dist/
+node_modules/
+Basurero/

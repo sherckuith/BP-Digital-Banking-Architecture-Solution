@@ -1,0 +1,26 @@
+
+```mermaid
+
+graph LR
+    User[Cliente: Persona Natural/Jurídica<br/>Web SPA / Mobile App]
+    Reg[Entes Reguladores: Ecuador<br/>Super de Bancos, UAFE, LOPDP]
+
+    subgraph BP_System [BP: Ecosistema Digital Banking]
+        BankingSystem[Sistema de Banca Digital<br/>Procesa transacciones, onboarding<br/>y servicios financieros]
+    end
+
+    subgraph External_Systems [Sistemas Externos y Legacy]
+        Core[Core Bancario Legacy<br/>AS/400 u On-Prem Mainframe]
+        IdP[Identity Provider: FAPI 2.0<br/>Gestión de identidad y Auth]
+        NotifyProviders[Proveedores de Mensajería<br/>WhatsApp, SMS, Push, Email]
+        FraudEngine[Motor de Fraude: MLaaS<br/>Análisis de riesgo en tiempo real]
+    end
+
+    User -->|Consulta, Transacciona, Onboarding| BankingSystem
+    BankingSystem -->|Valida Identidad y DPoP| IdP
+    BankingSystem -->|Asientos contables y saldos| Core
+    BankingSystem -->|Envía alertas críticas y OTP| NotifyProviders
+    BankingSystem -->|Analiza patrones de riesgo| FraudEngine
+    Reg -.->|Auditoría y cumplimiento normativo| BankingSystem
+```
+

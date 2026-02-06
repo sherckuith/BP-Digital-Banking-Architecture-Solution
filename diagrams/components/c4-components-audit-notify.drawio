@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.7">
+  <diagram name="Página-1" id="GSgvSqJj8F34RwJAFcTo">
+    <mxGraphModel dx="1554" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Eei0R2mdK1CvACE43qEv-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Audit &amp; Notification Infrastructure" vertex="1">
+          <mxGeometry height="434" width="697" x="20" y="216" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Notification Orchestrator" vertex="1">
+          <mxGeometry height="384" width="321" x="40" y="241" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Audit Service Component" vertex="1">
+          <mxGeometry height="384" width="316" x="381" y="241" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-4" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Append-Only Ledger&#xa;Registro secuencial" vertex="1">
+          <mxGeometry height="78" width="205" x="437" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="SHA-256 Chain Gen&#xa;Criptografía de integridad" vertex="1">
+          <mxGeometry height="78" width="246" x="416" y="394" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-6" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Snapshot Scheduler&#xa;Transferencia a WORM S3" vertex="1">
+          <mxGeometry height="78" width="241" x="419" y="522" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-7" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Notification Dispatcher&#xa;Ruteo inteligente" vertex="1">
+          <mxGeometry height="78" width="226" x="88" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-8" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Retry + Back-off Policy&#xa;Manejo de errores" vertex="1">
+          <mxGeometry height="78" width="222" x="89" y="394" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-9" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Circuit Breaker&#xa;Protección de proveedores" vertex="1">
+          <mxGeometry height="78" width="251" x="75" y="522" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-10" parent="1" style="rhombus;strokeWidth=2;whiteSpace=wrap;" value="Kafka Events" vertex="1">
+          <mxGeometry height="146" width="146" x="297" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-11" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="WhatsApp / SMS / Push" vertex="1">
+          <mxGeometry height="54" width="227" x="87" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-12" edge="1" parent="1" source="Eei0R2mdK1CvACE43qEv-10" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.79;entryX=0.5;entryY=-0.01;rounded=0;" target="Eei0R2mdK1CvACE43qEv-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="539" y="191" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-13" edge="1" parent="1" source="Eei0R2mdK1CvACE43qEv-4" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" target="Eei0R2mdK1CvACE43qEv-5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-14" edge="1" parent="1" source="Eei0R2mdK1CvACE43qEv-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" target="Eei0R2mdK1CvACE43qEv-6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-15" edge="1" parent="1" source="Eei0R2mdK1CvACE43qEv-10" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.79;entryX=0.5;entryY=-0.01;rounded=0;" target="Eei0R2mdK1CvACE43qEv-7" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="201" y="191" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-16" edge="1" parent="1" source="Eei0R2mdK1CvACE43qEv-7" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" target="Eei0R2mdK1CvACE43qEv-8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-17" edge="1" parent="1" source="Eei0R2mdK1CvACE43qEv-8" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" target="Eei0R2mdK1CvACE43qEv-9" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Eei0R2mdK1CvACE43qEv-18" edge="1" parent="1" source="Eei0R2mdK1CvACE43qEv-9" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" target="Eei0R2mdK1CvACE43qEv-11" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

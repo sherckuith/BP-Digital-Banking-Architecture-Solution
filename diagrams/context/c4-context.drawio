@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.7">
+  <diagram name="Página-1" id="EXa988ZlHiDQlsfqqo9V">
+    <mxGraphModel dx="1554" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Sistemas Externos y Legacy" vertex="1">
+          <mxGeometry height="604" width="310" x="1086" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="BP: Ecosistema Digital Banking" vertex="1">
+          <mxGeometry height="498" width="310" x="530" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Cliente: Persona Natural/Jurídica&#xa;Web SPA / Mobile App" vertex="1">
+          <mxGeometry height="102" width="260" x="20" y="61" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-4" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Entes Reguladores: Ecuador&#xa;Super de Bancos, UAFE, LOPDP" vertex="1">
+          <mxGeometry height="102" width="260" x="20" y="487" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Sistema de Banca Digital&#xa;Procesa transacciones, onboarding&#xa;y servicios financieros" vertex="1">
+          <mxGeometry height="126" width="260" x="555" y="253" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-6" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Core Bancario Legacy&#xa;AS/400 u On-Prem Mainframe" vertex="1">
+          <mxGeometry height="102" width="260" x="1111" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-7" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Identity Provider: FAPI 2.0&#xa;Gestión de identidad y Auth" vertex="1">
+          <mxGeometry height="78" width="260" x="1111" y="207" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-8" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Proveedores de Mensajería&#xa;WhatsApp, SMS, Push, Email" vertex="1">
+          <mxGeometry height="102" width="260" x="1111" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-9" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Motor de Fraude: MLaaS&#xa;Análisis de riesgo en tiempo real" vertex="1">
+          <mxGeometry height="102" width="260" x="1111" y="487" as="geometry" />
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-10" edge="1" parent="1" source="kDJfCSCS2E_N6WdX9mb3-3" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.32;entryY=0;rounded=0;" target="kDJfCSCS2E_N6WdX9mb3-5" value="Consulta, Transacciona, Onboarding">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="112" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-11" edge="1" parent="1" source="kDJfCSCS2E_N6WdX9mb3-5" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.03;entryX=0;entryY=0.5;rounded=0;" target="kDJfCSCS2E_N6WdX9mb3-7" value="Valida Identidad y DPoP">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="246" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-12" edge="1" parent="1" source="kDJfCSCS2E_N6WdX9mb3-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.68;exitY=0;entryX=0;entryY=0.5;rounded=0;" target="kDJfCSCS2E_N6WdX9mb3-6" value="Asientos contables y saldos">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="106" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-13" edge="1" parent="1" source="kDJfCSCS2E_N6WdX9mb3-5" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.97;entryX=0;entryY=0.5;rounded=0;" target="kDJfCSCS2E_N6WdX9mb3-8" value="Envía alertas críticas y OTP">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="386" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-14" edge="1" parent="1" source="kDJfCSCS2E_N6WdX9mb3-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.67;exitY=1;entryX=0;entryY=0.5;rounded=0;" target="kDJfCSCS2E_N6WdX9mb3-9" value="Analiza patrones de riesgo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="538" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kDJfCSCS2E_N6WdX9mb3-15" edge="1" parent="1" source="kDJfCSCS2E_N6WdX9mb3-4" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.33;entryY=1;rounded=0;" target="kDJfCSCS2E_N6WdX9mb3-5" value="Auditoría y cumplimiento normativo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="538" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

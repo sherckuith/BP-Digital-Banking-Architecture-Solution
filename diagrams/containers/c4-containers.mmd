@@ -1,0 +1,43 @@
+```mermaid
+
+graph TD
+    subgraph Client_Tier [Capa de Cliente]
+        App[Mobile App Container<br/>Flutter / Secure Enclave Binding]
+        SPA[React SPA Container<br/>TypeScript / Node.js Vite]
+    end
+
+    subgraph API_Edge [Perímetro y Seguridad]
+        GW[API Gateway Container: Kong<br/>Auth, Rate Limiting, DPoP Validation]
+        BFF[BFF Container: Node.js<br/>Agregación de servicios por canal]
+    end
+
+    subgraph Microservices [Servicios de Misión Crítica]
+        Onb[Onboarding Service Container: Go<br/>IAL2 Biometry + KYC Logic]
+        Txn[Transaction Service Container: Java/Spring<br/>Saga Orchestrator + Outbox Pattern]
+        Audit[Audit Service Container: Go<br/>Hash-chaining SHA-256 / WORM]
+        Notify[Notification Orchestrator: Node.js<br/>Fallback Logic: WhatsApp > SMS]
+    end
+
+    subgraph Persistence_Messaging [Datos y Resiliencia]
+        Redis[Cache Container: Redis<br/>Cache-Aside / Latency Mitigation]
+        DB[(Aurora Global DB<br/>Transactional Data)]
+        Kafka{Kafka / MSK Container<br/>Event Bus / 200k TPS Support}
+        S3[(S3 Glacier WORM<br/>Auditoría Inmutable - 7 años)]
+    end
+
+    %% Relaciones
+    App & SPA --> GW
+    GW --> BFF
+    BFF --> Onb & Txn
+    
+    Txn --> Redis
+    Txn --> DB
+    Txn --> Kafka
+    
+    Kafka --> Audit
+    Kafka --> Notify
+    
+    Audit --> S3
+```
+
+

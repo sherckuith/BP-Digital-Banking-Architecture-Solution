@@ -1,0 +1,28 @@
+```mermaid
+
+graph TD
+    subgraph Audit_Notify_Cluster [Audit & Notification Infrastructure]
+        subgraph Audit_Svc [Audit Service Component]
+            Appender[Append-Only Ledger<br/>Registro secuencial]
+            Hasher[SHA-256 Chain Gen<br/>Criptografía de integridad]
+            Archiver[Snapshot Scheduler<br/>Transferencia a WORM S3]
+        end
+
+        subgraph Notify_Svc [Notification Orchestrator]
+            Dispatch[Notification Dispatcher<br/>Ruteo inteligente]
+            Retry[Retry + Back-off Policy<br/>Manejo de errores]
+            Circuits[Circuit Breaker<br/>Protección de proveedores]
+        end
+    end
+
+    Kafka_Bus{Kafka Events} --> Appender
+    Appender --> Hasher
+    Hasher --> Archiver
+
+    Kafka_Bus --> Dispatch
+    Dispatch --> Retry
+    Retry --> Circuits
+    Circuits --> WhatsApp[WhatsApp / SMS / Push]
+
+
+```
