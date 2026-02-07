@@ -9,3 +9,6 @@
     - **Nivel 3 (Componentes)**: Detalle granular para *Transaction Service* (Saga, Outbox), *Onboarding* (Biometría), *Audit* (Ledger Inmutable) y *Notification*.
     - **Nivel 4 (Despliegue)**: Representación de infraestructura AWS Multi-Región y conexión On-Premise.
 - **Cumplimiento de Test**: El modelo refleja estrictamente los requisitos de `test_instructions.md` (e.g., FAPI 2.0, Zero-Trust, HA, WORM).
+
+### Changed
+- **Renombrado de Imágenes**: Se estandarizaron los nombres de las imágenes exportadas de Structurizr en `diagrams/structurizr/` siguiendo la convención `c4_level[N]_[nombre]` para mayor claridad y orden.

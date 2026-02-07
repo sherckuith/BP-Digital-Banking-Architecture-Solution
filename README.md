@@ -4,11 +4,11 @@
 
 Este repositorio contiene el diseño de arquitectura de soluciones para el ecosistema de Banca por Internet de Banco BP. El diseño sigue el modelo **C4 (Context, Containers, Components, Code)** y se adhiere a las mejores prácticas de gobernanza, seguridad (Zero-Trust) y cumplimiento normativo (LOPDP, CNBV, PCI-DSS).
 
-> **Estado del Proyecto:** 🚧 **En Progreso (80% Completado)**
+> **Estado del Proyecto:** [Release Candidate] **95% Completado**
 >
-> Actualmente, la estructura del repositorio, los diagramas arquitectónicos y la definición de decisiones clave (ADRs) están completos. Se está trabajando en el detalle fino de la implementación de referencia y las configuraciones finales de infraestructura.
+> La arquitectura ha sido modelada formalmente utilizando Structurizr DSL. Se han generado los diagramas C4 (Niveles 1-4), definido los ADRs y estructurado el repositorio para la fase de implementación.
 
-## 📋 Resumen Ejecutivo/Executive Summary
+## Resumen Ejecutivo
 
 La solución propone una arquitectura basada en **Microservicios (DDD)** y **Event-Driven Architecture (EDA)**, diseñada para soportar:
 
@@ -17,17 +17,19 @@ La solución propone una arquitectura basada en **Microservicios (DDD)** y **Eve
 *   **Seguridad:** Flujos FAPI 2.0, DPoP, y validación biométrica IAL2.
 *   **Cumplimiento:** Auditoría inmutable (WORM) y trazabilidad completa.
 
-## 🗂 Estructura del Repositorio
+## Estructura del Repositorio
 
 La organización del código y la documentación sigue un estándar riguroso:
 
 ```text
 online-banking-architecture/
 ├── diagrams/                  # Modelos Visuales (C4 Model)
-│   ├── context/               # Nivel 1: Diagramas de Contexto
-│   ├── containers/            # Nivel 2: Diagramas de Contenedores
-│   ├── components/            # Nivel 3: Diagramas de Componentes
-│   └── deployment/            # Nivel 4: Infraestructura AWS
+│   ├── structurizr/           # MODELO FORMAL DEL PROYECTO
+│   │   ├── workspace.dsl      # Código fuente del modelo C4 (Structurizr DSL)
+│   │   ├── c4_level1_...      # Imágenes exportadas del modelo
+│   │   └── ...
+│   ├── context/               # Diagramas históricos
+│   └── ...
 │
 ├── docs/                      # Documentación Técnica y de Procesos
 │   ├── adrs/                  # Architecture Decision Records (18 Decisiones Clave)
@@ -48,19 +50,33 @@ online-banking-architecture/
     └── terraform/             # Scripts de despliegue AWS
 ```
 
-## 🛠 Stack Tecnológico de Referencia
+## Visualización del Modelo C4 (Structurizr)
+
+La arquitectura completa está definida como código en el archivo `diagrams/structurizr/workspace.dsl`.
+
+**Instrucciones para visualizar el modelo:**
+
+1.  Acceda a [Structurizr DSL Playground](https://playground.structurizr.com/).
+2.  Copie el contenido completo del archivo `diagrams/structurizr/workspace.dsl`.
+3.  Pegue el código en el editor del Playground.
+4.  Haga clic en el botón **"Render"** para generar los diagramas interactivos.
+5.  Navegue entre las vistas (Context, Containers, Components, Deployment) utilizando el menú izquierdo.
+
+Este modelo es la fuente de verdad para la arquitectura, reflejando todos los componentes, relaciones, decisiones de diseño (ADRs) y despliegue en AWS.
+
+## Stack Tecnológico de Referencia
 
 *   **Frontend:** React (Web), Flutter (Mobile).
 *   **Backend:** Java (Spring Boot), Go (Audit/Onboarding), Node.js (BFF).
 *   **Data & Events:** Aurora PostgreSQL (Global), DynamoDB, Kafka (MSK), Redis.
 *   **Infraestructura:** AWS (EKS, Lambda, Outposts) + Terraform.
 
-## 📖 Cómo navegar este repositorio
+## Navegación
 
 1.  Comience por **[Summary.md](./Summary.md)** para una visión general de las métricas y objetivos.
 2.  Revise **[Arquitectura_de_Banca_por_Internet_BP.md](./Arquitectura_de_Banca_por_Internet_BP.md)** para el documento maestro de diseño.
 3.  Consulte los **[ADRs](./docs/adrs/README.md)** para entender las justificaciones detrás de cada decisión técnica.
-4.  Explore los diagramas visuales en **[diagrams/](./diagrams/README.md)**.
+4.  Explore el modelo C4 en **[diagrams/structurizr/workspace.dsl](./diagrams/structurizr/workspace.dsl)**.
 
 ---
 **Autor:** Angel David Yaguana Hernandez
