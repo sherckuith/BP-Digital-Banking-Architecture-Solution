@@ -17,3 +17,4 @@ La infraestructura sigue un modelo **Multi-Región Activo/Pasivo (Warm Standby)*
 ## Directorios
 
 *   `terraform/`: Código fuente HCL.
+
