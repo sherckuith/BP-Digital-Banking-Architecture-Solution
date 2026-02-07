@@ -10,3 +10,4 @@ Este directorio centraliza toda la documentación técnica, de cumplimiento y op
 *   **README.md**: Este archivo.
 
 Para una visión técnica detallada, consulte los diagramas en la carpeta `../diagrams/`.
+
