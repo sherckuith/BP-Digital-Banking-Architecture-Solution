@@ -4,7 +4,7 @@ Este documento centraliza los artefactos visuales del sistema. La arquitectura f
 
 ---
 
-## 🖼️ Visualización de Alta Fidelidad (Niveles 1-4)
+## Visualización de Alta Fidelidad (Niveles 1-4)
 
 A diferencia de un diagrama estático, este modelo permite navegar por la jerarquía del sistema, desde la interacción con el usuario hasta el despliegue físico en la nube.
 
@@ -50,8 +50,8 @@ Infraestructura de Misión Crítica con replicación de datos y fail-over automa
 
 ---
 
-## 🛠️ Fuente de Verdad (C4 as Code)
+## Fuente de Verdad (C4 as Code)
 El archivo fuente que genera todos estos artefactos es:
-👉 **[workspace.dsl](diagrams/structurizr/workspace.dsl)**
+**[workspace.dsl](diagrams/structurizr/workspace.dsl)**
 
 Para visualizarlo interactivamente, puede copiar su contenido en el [Structurizr Playground](https://playground.structurizr.com/).

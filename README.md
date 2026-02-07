@@ -73,7 +73,7 @@ Este modelo es la fuente de verdad para la arquitectura, reflejando todos los co
 *   **Data & Events:** Aurora PostgreSQL (Global), DynamoDB, Kafka (MSK), Redis.
 *   **Infraestructura:** AWS (EKS, Lambda, Outposts) + Terraform.
 
-### 🧭 Roadmap del Proyecto
+### Roadmap del Proyecto
 
 Para una revisión exhaustiva, se recomienda seguir este flujo de documentos, los cuales han sido validados al **100%** de cumplimiento con los requerimientos de BP.
 
