@@ -18,3 +18,4 @@
 - **Justificaciones Técnicas**: Robustecimiento de `Design_Rationale.md` para **Flutter** (AOT, Impeller) y **API Gateway** (PEP, FAPI 2.0).
 - **Costos**: Inclusión del impacto financiero de Warm-Standby (+35%) y activación de DR.
 
+
