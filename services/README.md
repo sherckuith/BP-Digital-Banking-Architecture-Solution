@@ -20,3 +20,4 @@ Este directorio estructura los servicios del backend siguiendo los principios de
 
 *   **Lenguajes**: Java (Spring Boot) para lógica de negocio compleja; Go para servicios de alta eficiencia (Audit, Onboarding); Node.js para BFF y orquestación ligera.
 *   **Comunicación**: Asíncrona vía Kafka para eventos de dominio; Síncrona (gRPC/REST) para consultas directas.
+
