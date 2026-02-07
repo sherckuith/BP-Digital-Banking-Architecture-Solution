@@ -18,3 +18,4 @@
 | **ADR-016** | CI/CD con SAST/DAST/SBOM + firmas OCI | 1. Detecta vulnerabilidades en *stage* (*pre-prod*) reduciendo *surface-of-attack*. <br> 2. SBOM + Cosign garantizan integridad del artefacto en producción (*Supply-Chain Security*). |
 | **ADR-017** | DB por dominio + ABAC/OPA + *masking* | 1. Limita movimiento lateral de datos sensibles (principio *least privilege*). <br> 2. *Masking/Tokenization* cumple con LOPDP y facilita auditorías. |
 | **ADR-018** | Arquitectura híbrida *cloud* primario + *on-prem fail-over* | 1. *Data-sovereignty*: datos críticos pueden permanecer en Ecuador bajo control local. <br> 2. *Resilience*: Outposts brinda una ruta de *fail-over* completa ante caída total de la región *cloud*. |
+
