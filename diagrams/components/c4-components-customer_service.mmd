@@ -1,0 +1,24 @@
+```mermaid
+graph TD
+    subgraph Customer_Service_Container [Customer Service Container]
+        API[Customer API Controller]
+        Aggregator[Data Aggregator Component]
+        Cache[Redis Client]
+        
+        subgraph Adapters
+            LegacyAdapter[Core Legacy Client]
+            DetailAdapter[Independent System Client]
+        end
+    end
+
+    API --> Aggregator
+    Aggregator --> Cache
+    Aggregator --> LegacyAdapter
+    Aggregator --> DetailAdapter
+
+    %% Conexiones Externas
+    LegacyAdapter --> |Consulta Básica| Core[(Core Legacy)]
+    DetailAdapter --> |Datos Detallados| DB_Indp[(Independent DB)]
+    Cache --> |Clientes Frecuentes| Redis[(Redis HA)]
+
+```

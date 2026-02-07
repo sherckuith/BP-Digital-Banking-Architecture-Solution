@@ -12,3 +12,9 @@
 
 ### Changed
 - **Renombrado de Imágenes**: Se estandarizaron los nombres de las imágenes exportadas de Structurizr en `diagrams/structurizr/` siguiendo la convención `c4_level[N]_[nombre]` para mayor claridad y orden.
+
+### Refined
+- **Arquitectura (V2)**: Implementación de origen dual de datos en **Customer Service** (Core + Customer-360) y actualización de diagramas de contenedores a V2.
+- **Justificaciones Técnicas**: Robustecimiento de `Design_Rationale.md` para **Flutter** (AOT, Impeller) y **API Gateway** (PEP, FAPI 2.0).
+- **Costos**: Inclusión del impacto financiero de Warm-Standby (+35%) y activación de DR.
+

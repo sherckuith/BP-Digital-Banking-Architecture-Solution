@@ -4,9 +4,11 @@
 
 Este repositorio contiene el diseño de arquitectura de soluciones para el ecosistema de Banca por Internet de Banco BP. El diseño sigue el modelo **C4 (Context, Containers, Components, Code)** y se adhiere a las mejores prácticas de gobernanza, seguridad (Zero-Trust) y cumplimiento normativo (LOPDP, CNBV, PCI-DSS).
 
-> **Estado del Proyecto:** [Release Candidate] **95% Completado**
+
+> **Estado del Proyecto:**  **Finalizado (100% Completado)**
 >
-> La arquitectura ha sido modelada formalmente utilizando Structurizr DSL. Se han generado los diagramas C4 (Niveles 1-4), definido los ADRs y estructurado el repositorio para la fase de implementación.
+> **Nota Importante:** El documento de referencia principal y consolidado de este proyecto es el archivo PDF: **`Online Banking Architecture BP.pdf`**.
+> Este repositorio sirve como soporte técnico, conteniendo los diagramas fuente, historial de decisiones (ADRs) y código de infraestructura.
 
 ## Resumen Ejecutivo
 
@@ -73,11 +75,8 @@ Este modelo es la fuente de verdad para la arquitectura, reflejando todos los co
 
 ## Navegación
 
-1.  Comience por **[Summary.md](./Summary.md)** para una visión general de las métricas y objetivos.
-2.  Revise **[Arquitectura_de_Banca_por_Internet_BP.md](./Arquitectura_de_Banca_por_Internet_BP.md)** para el documento maestro de diseño.
-3.  Consulte los **[ADRs](./docs/adrs/README.md)** para entender las justificaciones detrás de cada decisión técnica.
+2. Consulte los **[ADRs](./docs/adrs/README.md)** para entender las justificaciones detrás de cada decisión técnica.
 4.  Explore el modelo C4 en **[diagrams/structurizr/workspace.dsl](./diagrams/structurizr/workspace.dsl)**.
 
 ---
 **Autor:** Angel David Yaguana Hernandez
-**Rol:** Lead Solutions Architect

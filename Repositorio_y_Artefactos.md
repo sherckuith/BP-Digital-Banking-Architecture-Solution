@@ -33,7 +33,6 @@ online-banking-architecture/
 |-- Glosario.md                # Definiciones técnicas
 |-- Summary.md                 # Resumen ejecutivo
 |-- Design_Rationale.md        # Racional de diseño
-|-- Arquitectura_de_Banca_por_Internet_BP.md # Documento maestro
 ```
 
 ## Herramientas Utilizadas

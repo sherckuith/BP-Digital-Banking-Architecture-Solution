@@ -1,5 +1,10 @@
 # Resumen Ejecutivo
 
+![Generic badge](https://img.shields.io/badge/Status-Released-green.svg)
+![Generic badge](https://img.shields.io/badge/Completion-100%25-blue.svg)
+
+> **Estado del Proyecto:**  **Finalizado (100% Completado)**
+
 ## Visión General
 
 La arquitectura propuesta para la Banca Digital de BP está diseñada para soportar un crecimiento agresivo de usuarios (hasta 1M en 24 meses) y un alto volumen transaccional (200k TPS pico), manteniendo latencias bajas y una disponibilidad de cuatro nueves (99.99%).

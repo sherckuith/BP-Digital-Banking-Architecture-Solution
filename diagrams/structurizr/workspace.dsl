@@ -2,9 +2,9 @@
  * BP-Digital-Banking-Architecture-Solution
  * 
  * PROYECTO: Sistema de Banca por Internet - Banco BP
- * VERSION: 1.0.0
+ * VERSION: 2.0.0
  * ESTADO: Release Candidate
- * AUTOR: Angel David Yaguana Hernandez (Lead Solutions Architect)
+ * AUTOR: Angel David Yaguana Hernandez
  * FECHA: 2026-02-06
  *
  * RESUMEN EJECUTIVO:
@@ -56,6 +56,9 @@ workspace "BP Digital Banking Architecture" "Modelo de arquitectura C4 para el s
         
         # Biometria IAL2 (ADR-018: Hybrid Cloud / Onboarding)
         biometryProvider = softwareSystem "Proveedor de Biometría" "SaaS de reconocimiento facial y prueba de vida (e.g., Facephi/QI-Tech)." "External System"
+        
+        # Base de datos independiente (ADR-005: Dual Source)
+        customer360 = softwareSystem "Customer-360 DB" "Sistema independiente que centraliza información demográfica y de clientes." "External System"
 
         # Sistema Principal (Software System)
         # Implementa Microservicios DDD y BFF por canal (ADR-001)
@@ -119,7 +122,14 @@ workspace "BP Digital Banking Architecture" "Modelo de arquitectura C4 para el s
 
             # Servicios de Dominio Adicionales
             # Cache-Aside para lectura rapida (ADR-011)
-            customerService = container "Customer Service" "Gestión de datos del cliente (Vista 360) y preferencias." "Java (Spring Boot)" "Service"
+            customerService = container "Customer Service" "Gestión de datos del cliente (Vista 360) y preferencias." "Java (Spring Boot)" "Service" {
+                # Components for Customer Service (Dual Source)
+                custApi = component "Customer API Controller" "Expone endpoints REST para consulta de perfiles."
+                dataAggregator = component "Data Aggregator" "Orquesta la unificación de datos del Core y Customer-360."
+                legacyAdapter = component "Legacy Client Adapter" "Conecta con el Core Bancario vía ACL."
+                independentAdapter = component "Independent System Client" "Conecta con la base de datos Customer-360."
+                redisClient = component "Redis Client" "Gestiona la caché de clientes frecuentes."
+            }
             accountService = container "Account Service" "Gestión del ciclo de vida de cuentas y consultas de saldo." "Java (Spring Boot)" "Service"
 
             # Data & Messaging Layer
@@ -180,6 +190,7 @@ workspace "BP Digital Banking Architecture" "Modelo de arquitectura C4 para el s
         
         customerService -> auroraDB "SQL (Read)"
         customerService -> redis "Cache Lookups"
+        customerService -> customer360 "REST/SQL (Demographics)"
         
         accountService -> auroraDB "SQL (Read/Write)"
         
@@ -215,6 +226,16 @@ workspace "BP Digital Banking Architecture" "Modelo de arquitectura C4 para el s
         notifDispatcher -> retryPolicy "Aplica política de reintento"
         retryPolicy -> circuitBreaker "Ejecuta envío protegido"
         circuitBreaker -> notificationProviders "Envía Mensaje"
+
+        # Customer Service Internal (Dual Source Logic)
+        custApi -> dataAggregator "Solicita perfil unificado"
+        dataAggregator -> legacyAdapter "Consulta financiera"
+        dataAggregator -> independentAdapter "Consulta demográfica"
+        dataAggregator -> redisClient "Consulta/Actualiza Caché"
+        legacyAdapter -> coreBanking "SOAP/XML (via ACL)"
+        independentAdapter -> customer360 "REST/SQL"
+        redisClient -> redis "Get/Set"
+
         
         # Infraestructura de Despliegue (Nivel 4)
         # Implementa ADR-014: HA Multi-AZ + Disaster Recovery
@@ -310,6 +331,11 @@ workspace "BP Digital Banking Architecture" "Modelo de arquitectura C4 para el s
         }
 
         component notificationOrchestrator "NotificationComponents" "Componentes del orquestador de Notificaciones." {
+            include *
+            autoLayout
+        }
+
+        component customerService "CustomerServiceComponents" "Componentes del Customer Service (Dual Source)." {
             include *
             autoLayout
         }
