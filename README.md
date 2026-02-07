@@ -73,10 +73,15 @@ Este modelo es la fuente de verdad para la arquitectura, reflejando todos los co
 *   **Data & Events:** Aurora PostgreSQL (Global), DynamoDB, Kafka (MSK), Redis.
 *   **Infraestructura:** AWS (EKS, Lambda, Outposts) + Terraform.
 
-## Navegación
+### 🧭 Roadmap del Proyecto
 
-2. Consulte los **[ADRs](./docs/adrs/README.md)** para entender las justificaciones detrás de cada decisión técnica.
-4.  Explore el modelo C4 en **[diagrams/structurizr/workspace.dsl](./diagrams/structurizr/workspace.dsl)**.
+Para una revisión exhaustiva, se recomienda seguir este flujo de documentos, los cuales han sido validados al **100%** de cumplimiento con los requerimientos de BP.
+
+1. **[Estrategia y Resumen](Summary.md):** Fundamentos del negocio y métricas objetivo (TPS, Disponibilidad).
+2. **[Modelo C4 - Índice Visual](indice_C4.md):** **(Recomendado)** Acceso directo a la arquitectura modelada en **Structurizr**. Representa la fuente de verdad del diseño.
+3. **[Registro de Decisiones (ADRs)](docs/adrs/README.md):** Justificación técnica de las 18 decisiones críticas (DDD, Saga, DPoP, etc.).
+4. **[Racional del Diseño](Design_Rationale.md):** Profundización en la elección de **Flutter**, seguridad de **API Gateway** y resiliencia de infraestructura.
 
 ---
+
 **Autor:** Angel David Yaguana Hernandez
