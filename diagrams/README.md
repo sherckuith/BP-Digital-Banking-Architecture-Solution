@@ -12,3 +12,4 @@ Este directorio contiene los diagramas arquitectónicos organizados según el mo
 ## Herramientas
 
 Los diagramas están disponibles en formato editable `.drawio` y `.mmd` (Mermaid), así como en imágenes estáticas `.png` para fácil visualización.
+
